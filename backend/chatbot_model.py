@@ -9,10 +9,10 @@ from typing import List, Dict, Optional
 
 # OpenRouter API Configuration
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
-if not OPENROUTER_API_KEY:
+if not OPENROUTER_API_KEY or "your-api-key-here" in OPENROUTER_API_KEY:
     raise ValueError(
-        "OPENROUTER_API_KEY environment variable is not set. "
-        "Please set it in your .env file or environment. "
+        "OPENROUTER_API_KEY environment variable is not set or contains placeholder values. "
+        "Please set it in your .env file with your actual API key. "
         "Get your API key from: https://openrouter.ai/"
     )
 OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"

@@ -9,11 +9,11 @@ load_dotenv()
 # Get DATABASE_URL from environment - no default with credentials for security
 # Format: postgresql+asyncpg://user:password@host:port/dbname
 DATABASE_URL = os.getenv("DATABASE_URL")
-if not DATABASE_URL:
+if not DATABASE_URL or "YOUR_PASSWORD" in DATABASE_URL:
     raise ValueError(
-        "DATABASE_URL environment variable is not set. "
-        "Please set it in your .env file with your PostgreSQL connection string. "
-        "Example: postgresql+asyncpg://postgres:YOUR_PASSWORD@localhost/loan_app_db"
+        "DATABASE_URL environment variable is not set or contains placeholder values. "
+        "Please set it in your .env file with your actual PostgreSQL connection string. "
+        "Example: postgresql+asyncpg://postgres:YOUR_ACTUAL_PASSWORD@localhost/loan_app_db"
     )
 
 engine = create_async_engine(DATABASE_URL, echo=True)
