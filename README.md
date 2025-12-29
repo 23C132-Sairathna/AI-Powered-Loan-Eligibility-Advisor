@@ -16,13 +16,56 @@ This project contains a comprehensive banking system comprising a **Secure Ident
 
 ## Setup Instructions
 
-### 1. Database Setup
-1.  Ensure PostgreSQL is running.
-2.  Create a database named `loan_app_db` (or update `.env` with your preferred name).
-3.  The application is pre-configured to connect to `postgresql+asyncpg://postgres:Padma%40123@localhost/loan_app_db` via the included `.env` file.
-    > **Note**: If your PostgreSQL credentials differ, update the `.env` file in the root directory.
+### 1. Environment Variables Setup (REQUIRED)
 
-### 2. Backend Setup
+**⚠️ SECURITY IMPORTANT:** This project requires environment variables to be configured before running.
+
+1. Copy the example environment file:
+   ```bash
+   cp .env.example .env
+   ```
+
+2. Edit `.env` and replace all placeholder values with your actual credentials:
+   - **DATABASE_URL**: Your PostgreSQL connection string
+   - **JWT_SECRET_KEY**: Generate using `openssl rand -hex 32` (must be 32+ characters)
+   - **OPENROUTER_API_KEY**: Get from https://openrouter.ai/
+
+3. **Generate a secure JWT secret key:**
+   ```bash
+   openssl rand -hex 32
+   ```
+   Copy the output and paste it as your `JWT_SECRET_KEY` in `.env`
+
+**Example `.env` file:**
+```bash
+DATABASE_URL=postgresql+asyncpg://postgres:YourActualPassword@localhost/loan_app_db
+JWT_SECRET_KEY=a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6q7r8s9t0u1v2w3x4y5z6
+OPENROUTER_API_KEY=sk-or-v1-your-actual-api-key-from-openrouter
+```
+
+**🔒 Security Reminders:**
+- ❌ **NEVER** commit the `.env` file to Git (it's in `.gitignore`)
+- ❌ **NEVER** share your credentials publicly
+- ✅ Use different credentials for development and production
+- ✅ Rotate secrets regularly (every 90 days)
+- ✅ Use strong, randomly generated secrets
+
+### 2. Database Setup
+1.  Ensure PostgreSQL is running.
+2.  Create a database named `loan_app_db`:
+    ```bash
+    # Login to PostgreSQL
+    psql -U postgres
+    
+    # Create database
+    CREATE DATABASE loan_app_db;
+    
+    # Exit
+    \q
+    ```
+3.  Update the `DATABASE_URL` in your `.env` file with your PostgreSQL credentials.
+
+### 3. Backend Setup
 Navigate to the root directory and install Python dependencies:
 
 ```bash
@@ -43,7 +86,9 @@ uvicorn backend.main:app --reload
 
 The API will be available at `http://localhost:8000`.
 
-### 3. Frontend Setup
+**Note:** If you get environment variable errors, make sure you've properly configured your `.env` file as described in step 1.
+
+### 4. Frontend Setup
 Open a new terminal, navigate to the frontend directory:
 
 ```bash
@@ -132,4 +177,11 @@ The frontend will be available at `http://localhost:5173`.
 - Works across all devices
 
 ## Deployment
-This repository is configured to include the `.env` file for ease of setup. **Do not use these credentials in a production environment.**
+**⚠️ PRODUCTION SECURITY:**
+- Never use development credentials in production
+- Store production secrets in a secure secrets manager (AWS Secrets Manager, Azure Key Vault, etc.)
+- Enable SSL/TLS for all connections
+- Use environment-specific `.env` files
+- Implement proper access controls and audit logging
+- Regularly rotate all credentials
+- Never commit any `.env` files to version control
