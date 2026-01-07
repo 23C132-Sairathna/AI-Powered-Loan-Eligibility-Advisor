@@ -6,42 +6,42 @@ This project is an AI-driven web application that predicts a user’s loan appro
 
 The system allows applicants to enter financial details and instantly receive:
 
-Loan eligibility prediction
+- Loan eligibility prediction
 
-Key factor explanations
+- Key factor explanations
 
-A downloadable PDF decision report
+- A downloadable PDF decision report
 
-Guidance from an integrated financial chatbot
+- Guidance from an integrated financial chatbot
 
-Built using Python, Streamlit, and NLP models, the platform improves transparency in loan decisions and supports users with real-time insights.
+- Built using Python, React, and NLP models, the platform improves transparency in loan decisions and supports users with real-time insights.
 
 ## Core Features
 
-Loan Approval Prediction
+### Loan Approval Prediction
 ML models evaluate credit score, income, loan history, and other inputs to determine approval probability.
 
-Explainable AI
+### Explainable AI
 SHAP-based visualizations show how each feature influenced the final prediction.
 
-PDF Report Generation
+### PDF Report Generation
 Each evaluation generates a professional, downloadable credit appraisal report.
 
-Financial Chatbot
+### Financial Chatbot
 NLP-powered chatbot helps users understand EMI concepts, credit impact, and rejection reasons.
 
 ## System Modules
 
-Data Ingestion & Preprocessing
+### Data Ingestion & Preprocessing
 Collect user inputs, clean data, encode categories, and build preprocessing pipelines.
 
-Model Training & Inference
+### Model Training & Inference
 Train and tune models (Logistic Regression, Random Forest, XGBoost), evaluate performance, and generate predictions.
 
-Explainability & Reporting
+### Explainability & Reporting
 Generate SHAP plots and compile user-specific PDF summaries.
 
-Chatbot Integration & Deployment
+### Chatbot Integration & Deployment
 Incorporate transformer-based chatbot and deploy the end-to-end system on Streamlit Cloud or similar platforms.
 
 ## Milestones
