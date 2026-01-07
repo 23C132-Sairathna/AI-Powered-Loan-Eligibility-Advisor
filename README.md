@@ -62,8 +62,6 @@ Start the development server:
 npm run dev
 ```
 
-The frontend will be available at `http://localhost:5173`.
-
 ## Features
 - **User Authentication**: Secure signup and login with JWT tokens
 - **AI-Powered Loan Prediction**: Machine learning-based loan eligibility assessment with SHAP explanations
@@ -130,9 +128,6 @@ The frontend will be available at `http://localhost:5173`.
 - Secure & encrypted link
 - 24-hour expiration for security
 - Works across all devices
-
-## Deployment
-This repository is configured to include the `.env` file for ease of setup. **Do not use these credentials in a production environment.**
 
 ## License
 
