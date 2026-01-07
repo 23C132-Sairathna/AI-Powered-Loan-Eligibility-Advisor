@@ -1,76 +1,62 @@
 # AI-Powered Loan Eligibility Advisor
 
-This project contains a comprehensive banking system comprising a **Secure Identity Hub** frontend and a **Loan Approval Prediction** backend.
+This project is an AI-driven web application that predicts a user’s loan approval probability and provides clear, explainable insights. It streamlines the loan evaluation workflow by combining machine learning, explainable AI, and an interactive financial chatbot.
 
-## Project Structure
+# Overview
 
-- `frontend/`: React/Vite application for the user interface.
-- `backend/`: FastAPI application for loan prediction and user management.
-- `sql/`: Database scripts.
+The system allows applicants to enter financial details and instantly receive:
 
-## Prerequisites
+Loan eligibility prediction
 
-- **Python 3.8+**
-- **Node.js 16+** & **npm**
-- **PostgreSQL** (running locally)
+Key factor explanations
 
-## Setup Instructions
+A downloadable PDF decision report
 
-### 1. Database Setup
-1.  Ensure PostgreSQL is running.
-2.  Create a database named `loan_app_db` (or update `.env` with your preferred name).
-3.  The application is pre-configured to connect to `postgresql+asyncpg://postgres:dbpassword@localhost/loan_app_db` via the included `.env` file.
-    > **Note**: If your PostgreSQL credentials differ, update the `.env` file in the root directory.
+Guidance from an integrated financial chatbot
 
-### 2. Backend Setup
-Navigate to the root directory and install Python dependencies:
+Built using Python, Streamlit, and NLP models, the platform improves transparency in loan decisions and supports users with real-time insights.
 
-```bash
-pip install -r backend/requirements.txt
-```
+# Core Features
 
-Initialize the database tables:
+Loan Approval Prediction
+ML models evaluate credit score, income, loan history, and other inputs to determine approval probability.
 
-```bash
-python backend/create_tables.py
-```
+Explainable AI
+SHAP-based visualizations show how each feature influenced the final prediction.
 
-Start the backend server:
+PDF Report Generation
+Each evaluation generates a professional, downloadable credit appraisal report.
 
-```bash
-uvicorn backend.main:app --reload
-```
+Financial Chatbot
+NLP-powered chatbot helps users understand EMI concepts, credit impact, and rejection reasons.
 
-The API will be available at `http://localhost:8000`.
+# System Modules
 
-### 3. Frontend Setup
-Open a new terminal, navigate to the frontend directory:
+Data Ingestion & Preprocessing
+Collect user inputs, clean data, encode categories, and build preprocessing pipelines.
 
-```bash
-cd frontend
-```
+Model Training & Inference
+Train and tune models (Logistic Regression, Random Forest, XGBoost), evaluate performance, and generate predictions.
 
-Install dependencies:
+Explainability & Reporting
+Generate SHAP plots and compile user-specific PDF summaries.
 
-```bash
-npm install
-```
+Chatbot Integration & Deployment
+Incorporate transformer-based chatbot and deploy the end-to-end system on Streamlit Cloud or similar platforms.
 
-Start the development server:
+# Milestones
 
-```bash
-npm run dev
-```
+Milestone 1: Input form creation, data cleaning, and exploratory analysis
 
-## Features
-- **User Authentication**: Secure signup and login with JWT tokens
-- **AI-Powered Loan Prediction**: Machine learning-based loan eligibility assessment with SHAP explanations
-- **Interactive Dashboard**: Real-time loan status, credit score monitoring, and financial overview
-- **Loan Application**: Step-by-step loan application form with AI advisor
-- **PDF Report Generation**: Comprehensive RBI-compliant loan analysis reports
-- **QR Code Sharing**: Share and download reports on mobile devices
-- **Payment Gateway**: Mock payment integration (Card, UPI, Net Banking, Wallets)
-- **Profile Management**: Complete user profile and security settings
+Milestone 2: Model development, evaluation, and threshold tuning
+
+Milestone 3: Explainable AI integration and PDF report generation
+
+Milestone 4: Chatbot integration and final deployment
+
+# Outcome
+
+The finished system acts as a fast, transparent, and user-friendly loan eligibility advisor—benefiting both applicants and financial institutions.
 
 ## Screenshots
 
